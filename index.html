@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Коллаборация — Платформа для команд</title>
+  <link rel="stylesheet" href="css/theme.css">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container">
+      <!-- ЛОГОТИП -->
+      <a href="#" class="nav-logo">
+        <img src="logo.png" alt="Коллаборация">
+      </a>
+      
+      <div class="nav-links">
+        <a href="#about">О платформе</a>
+        <a href="#calendar">Мероприятия</a>
+        <a href="teams.html">Найти команду</a>
+        <a href="partners.html">Партнеры</a>
+        <a href="chat.html">Чаты</a>
+      </div>
+      <div class="nav-auth">
+        <button id="loginBtn" class="btn">Войти</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Коллаборация</h1>
+      <p class="hero-subtitle">Находите единомышленников, собирайте команды для хакатонов и создавайте проекты, которые меняют мир</p>
+      <div class="hero-cta">
+        <a href="#calendar" class="btn">📅 Смотреть мероприятия</a>
+        <button id="heroLoginBtn" class="btn btn-outline" style="border-color:white; color:white;">🚀 Начать сейчас</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="info-section">
+    <div class="container">
+      <h2 class="section-title">Зачем мы здесь?</h2>
+      <p class="section-subtitle">Мы создали платформу, чтобы решать главные проблемы разработчиков</p>
+      <div class="features-grid">
+        <div class="feature-card"><div class="feature-icon">🎯</div><h3>Точный мэтчинг</h3><p>Находите людей с нужными навыками и целями благодаря умной системе подбора.</p></div>
+        <div class="feature-card"><div class="feature-icon">📅</div><h3>Актуальные события</h3><p>Все хакатоны, митапы и воркшопы в одном календаре с удобными фильтрами.</p></div>
+        <div class="feature-card"><div class="feature-icon">💬</div><h3>Фокус на деле</h3><p>Чаты привязаны к мероприятиям — никакого флуда, только продуктивное общение.</p></div>
+        <div class="feature-card"><div class="feature-icon">🔐</div><h3>Безопасность</h3><p>Авторизация через Google и проверка профилей создают доверительную среду.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calendar" class="calendar-section">
+    <div class="container">
+      <div class="calendar-header">
+        <h2 class="calendar-title">🗓️ Ближайшие мероприятия</h2>
+        <div class="calendar-controls">
+          <div class="view-toggle">
+            <button id="viewList" class="toggle-btn active">Список</button>
+            <button id="viewCalendar" class="toggle-btn">Календарь</button>
+          </div>
+          <div class="filters" id="filtersContainer">
+            <select id="topicFilter"><option value="all">Все темы</option><option value="frontend">Frontend</option><option value="backend">Backend</option><option value="ai">AI/ML</option><option value="design">Дизайн</option></select>
+            <select id="formatFilter"><option value="all">Любой формат</option><option value="online">Онлайн</option><option value="offline">Офлайн</option><option value="hybrid">Гибрид</option></select>
+            <input type="date" id="dateFilter">
+          </div>
+        </div>
+      </div>
+      
+      <div id="calendarGrid" class="calendar-grid" style="display:none;">
+        <div class="calendar-nav" style="grid-column: 1/-1; display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+          <button id="prevMonth" class="btn btn-outline" style="padding:6px 12px; font-size:14px;">← Назад</button>
+          <span id="currentMonthLabel" style="font-weight:600; color:var(--primary)"></span>
+          <button id="nextMonth" class="btn btn-outline" style="padding:6px 12px; font-size:14px;">Вперед →</button>
+        </div>
+      </div>
+      
+      <div id="eventsList" class="events-list"></div>
+      <div id="calendarMessage" style="text-align:center; padding:20px; color:var(--text-muted); display:none;"></div>
+    </div>
+  </section>
+
+  <section class="archive-section">
+    <div class="container">
+      <h2 class="section-title">🗄️ Архив мероприятий</h2>
+      <p class="section-subtitle">Посмотрите, какие события уже прошли</p>
+      
+      <div class="archive-grid">
+        <div class="archive-card">
+          <div class="archive-date"><span class="day">15</span><span class="month">АПР</span><span class="year">2026</span></div>
+          <div class="archive-info"><h3>Spring Code Battle 2026</h3><p class="archive-desc">Хакатон по разработке веб-приложений.</p><div class="archive-badges"><span class="badge offline">📍 Офлайн</span></div></div>
+          <div class="archive-status"><span style="color:var(--text-muted); font-size:13px;">✅ Завершено</span></div>
+        </div>
+        <div class="archive-card">
+          <div class="archive-date"><span class="day">28</span><span class="month">МАР</span><span class="year">2026</span></div>
+          <div class="archive-info"><h3>AI Startup Weekend</h3><p class="archive-desc">Интенсив по запуску AI-стартапов.</p><div class="archive-badges"><span class="badge hybrid">🔄 Гибрид</span></div></div>
+          <div class="archive-status"><span style="color:var(--text-muted); font-size:13px;">✅ Завершено</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="promo-section">
+    <div class="container">
+      <h2 class="section-title">🔥 Найдите команду за 30 секунд</h2>
+      <p class="section-subtitle">Просто свайпайте анкеты участников.</p>
+      <div class="promo-card-container">
+        <div class="promo-demo-card">
+          <div class="promo-demo-avatar"></div>
+          <h3 style="margin-bottom:4px;">Алексей, 24</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted);">Ищу фронтендера</p>
+          <div class="promo-demo-skills"><span class="promo-demo-tag">React</span><span class="promo-demo-tag">Node.js</span></div>
+        </div>
+      </div>
+      <button id="promoLoginBtn" class="btn">🚀 Зарегистрироваться</button>
+    </div>
+  </section>
+
+  <script src="js/calendar.js"></script>
+  <script>
+    let isAuthenticated = false;
+    function toggleAuth() { isAuthenticated = !isAuthenticated; updateInterface(); if (isAuthenticated) alert('✅ Вы успешно вошли!'); }
+    function updateInterface() {
+      const loginBtns = document.querySelectorAll('#loginBtn, #heroLoginBtn, #promoLoginBtn');
+      loginBtns.forEach(btn => {
+        btn.textContent = isAuthenticated ? '👤 Выйти' : (btn.id === 'promoLoginBtn' ? '🚀 Зарегистрироваться' : 'Войти');
+        btn.onclick = toggleAuth;
+      });
+    }
+    document.addEventListener('DOMContentLoaded', updateInterface);
+  </script>
+</body>
+</html>
